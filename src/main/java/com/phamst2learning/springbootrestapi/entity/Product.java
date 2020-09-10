@@ -20,8 +20,8 @@ import javax.persistence.Table;
 public class Product {
     @Id
     @GeneratedValue
-    private int product_id;
-    private String product_name;
-    private int product_price;
+    private int id;
+    private String name;
     private int quantity;
+    private double price;
 }
