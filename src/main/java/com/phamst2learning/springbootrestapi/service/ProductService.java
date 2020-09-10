@@ -4,7 +4,6 @@ import com.phamst2learning.springbootrestapi.entity.Product;
 import com.phamst2learning.springbootrestapi.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import sun.font.TrueTypeGlyphMapper;
 
 import java.util.List;
 
