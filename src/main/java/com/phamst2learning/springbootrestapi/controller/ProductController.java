@@ -27,23 +27,39 @@ public class ProductController {
         return service.getAllProducts();
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/productById/{id}")
     public Product findProductById(@PathVariable int id){
+        Product toBeFound = service.getProductById(id);
+        if(toBeFound == null){
+            throw new ProductNotFoundException(id);
+        }
         return service.getProductById(id);
     }
 
-    @GetMapping("/product/{name}")
+    @GetMapping("/productByName/{name}")
     public Product findProductByName(@PathVariable String name){
+        Product toBeFound = service.getProductByName(name);
+        if(toBeFound == null){
+            throw new ProductNotFoundException(name);
+        }
         return service.getProductByName(name);
     }
 
     @PutMapping("/update")
     public Product updateProduct(@RequestBody Product product){
+        Product toBeFound = service.getProductById(product.getId());
+        if(toBeFound == null){
+            throw new ProductNotFoundException(product.getId());
+        }
         return service.updateProduct(product);
     }
 
     @DeleteMapping("/delete/{id}")
     public boolean deleteProduct(@PathVariable int id){
+        Product toBeFound = service.getProductById(id);
+        if(toBeFound == null){
+            throw new ProductNotFoundException(id);
+        }
         return service.deleteProductById(id);
     }
 }
