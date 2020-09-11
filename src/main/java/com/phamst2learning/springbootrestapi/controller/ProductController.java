@@ -43,7 +43,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean deleteProduct(@PathVariable Product product){
-        return service.deleteProductById(product.getId());
+    public boolean deleteProduct(@PathVariable int id){
+        return service.deleteProductById(id);
     }
 }
